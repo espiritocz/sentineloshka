@@ -1,0 +1,7 @@
+Now, these scripts perform the main processing - supposing that the selected images are preprocessed and reside in
+directories identified by their relative orbit number + swath number
+(yes, the processing chain is limited to swath processing - later on these swaths are to be merged together)
+
+The expected path is:
+MAINFOLDER/PROJECT_NUMBER/relorb_XX_iw_X - e.g. /scratch/sentineloshka/1001/relorb_124_iw_1
+
