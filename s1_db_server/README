@@ -1,0 +1,11 @@
+These codes are to be run from the Sentinel-1 database server.
+
+The idea is that this server will get list of all files from a MySQL database
+(structure based on LiCS database - ask COMET if you cannot arrange your own J)
+that are overlapping given bounding box.
+
+Then these files will be preprocessed by ISCE (reading, selecting bursts, calibrating based on aux files) and sent to
+s1_proc_server for further processing.
+
+Of course both servers can be the same - I had some reasons to separate it..
+
