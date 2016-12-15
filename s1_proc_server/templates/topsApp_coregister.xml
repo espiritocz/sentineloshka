@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topsApp>
+<component name="topsinsar">
+    <property name="Sensor name">SENTINEL1</property>
+    <component name="master">
+        <property name="output directory">MASTER</property>
+    </component>
+    <component name="slave">
+        <property name="output directory">SLAVE</property>
+    </component>
+    <property name="demFilename">SRTM1_DEM.wgs84</property>
+</component>
+</topsApp>

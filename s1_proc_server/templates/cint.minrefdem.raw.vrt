@@ -1,0 +1,11 @@
+<VRTDataset rasterXSize="WIDTH" rasterYSize="LENGTH">
+    <SRS>EPSG:4326</SRS>
+    <GeoTransform>0.0, 1.0, 0.0, 0.0, 0.0, 1.0</GeoTransform>
+    <VRTRasterBand band="1" dataType="CFloat32" subClass="VRTRawRasterBand">
+        <SourceFilename relativeToVRT="1">cint.minrefdem.raw</SourceFilename>
+        <ByteOrder>LSB</ByteOrder>
+        <ImageOffset>0</ImageOffset>
+        <PixelOffset>8</PixelOffset>
+        <LineOffset>POWID</LineOffset>
+    </VRTRasterBand>
+</VRTDataset>
