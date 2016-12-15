@@ -1,0 +1,4 @@
+export SENTPREPATH=/home/laz048/TEMP/.SENTINELOSHKA
+export SENTTEMPLATES=/home/laz048/.SENTINELOSHKA/templates
+export PATH=$PATH:/home/laz048/.SENTINELOSHKA/scripts
+export SENTUSER=laz048
