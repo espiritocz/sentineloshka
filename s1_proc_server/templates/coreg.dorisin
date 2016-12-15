@@ -1,0 +1,73 @@
+c **********************************************************************
+c ***
+c **********************************************************************
+ c
+ c
+ comment  ___general options___
+ c
+c SCREEN          debug                           // level of output to standard out
+SCREEN          info                           // level of output to standard out
+c SCREEN          error                           // level of output to standard out
+MEMORY          5000                             // MB
+BEEP            error                            // level of beeping
+OVERWRITE                                       // overwrite existing files
+BATCH                                           // non-interactive
+c LISTINPUT OFF                                 // prevents copy of this file to log
+c
+PROCESS          COARSECORR
+PROCESS          FINE
+PROCESS          COREGPM
+PROCESS          RESAMPLE
+c                                              //
+ c                                              //
+ comment  ___the general io files___            //
+ c                                              //
+LOGFILE         CONNPATH/log.out                         // log file
+M_RESFILE       CONNPATH/master.res  // parameter file
+S_RESFILE       CONNPATH/slave.res                       // parameter file
+I_RESFILE       CONNPATH/coreg.out               // parameter file
+ c                                              //
+CC_METHOD	magfft                          // default
+CC_NWIN         51                              // number of windows
+CC_WINSIZE	512 128                        // size of windows
+c CC_WINSIZE	1024 256                        // size of windows
+CC_INITOFF    0 0                             // use this if no precise orbits
+ c
+ c
+ comment ___FINE COREGISTRATION___
+ c
+FC_METHOD       oversample                          //
+c FC_METHOD       magfft                          //
+c FC_METHOD     magspace                        //
+FC_NWIN         500                             // number of windows
+c FC_IN_POS       fc_pos.in                // file containing position of windows
+FC_WINSIZE      64 64                           // size of windows
+FC_ACC          8 8                             // search window, 2^n
+FC_INITOFF      coarsecorr                      // use result of coarse to compute first
+FC_OSFACTOR     32                              // oversampling factor
+c FC_PLOT         0.65 BG
+ c
+ c
+ comment ___COMPUTE COREGISTRATION PARAMETERS___
+ c
+CPM_THRESHOLD   0.5
+CPM_DEGREE      2
+c CPM_WEIGHT      bamler                          // none
+c CPM_WEIGHT      linear                          // none
+CPM_WEIGHT      quadratic                          // none
+CPM_MAXITER     1000
+c CPM_PLOT        BG
+ c
+ c
+RS_METHOD     cc4p
+c RS_METHOD     cc6p
+c RS_METHOD     ts6p
+c RS_METHOD     ts8p
+c RS_METHOD     ts16p
+c RS_METHOD	  rc12p
+RS_OUT_FILE     CONNPATH/resampled.raw
+RS_OUT_FORMAT   cr4
+RS_DBOW 1 LENGTH 1 WIDTH
+RS_SHIFTAZI  OFF
+c
+STOP
