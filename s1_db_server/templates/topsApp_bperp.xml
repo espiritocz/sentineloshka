@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topsApp>
+<component name="topsinsar">
+    <property name="Sensor name">SENTINEL1</property>
+    <component name="master">
+	<property name="safe">MASTERFILE</property>
+	<property name="swath number">SWATH</property>
+	<property name="output directory">MASTER</property>
+	<property name="orbit directory">/media/S1/ORBITS/S1A</property>
+	<property name="auxiliary data directory">/media/S1/AUX</property>
+	<property name="region of interest">AOI</property>
+    </component>
+    <component name="slave">
+	<property name="safe">SLAVEFILE</property>
+	<property name="swath number">SWATH</property>
+	<property name="output directory">SLAVEDIR</property>
+	<property name="orbit directory">/media/S1/ORBITS/S1A</property>
+	<property name="auxiliary data directory">/media/S1/AUX</property>
+	<property name="region of interest">AOI</property>
+    </component>
+  </component>
+</topsApp>
