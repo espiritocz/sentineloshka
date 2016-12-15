@@ -1,0 +1,14 @@
+#home folder in db server
+SENT_HOME=/home/isce
+#working folder in processing server
+SENT_PATH_PROC=/scratch/temp/me/.SENTINELOSHKA
+#folder with sentineloshka scripts in processing server
+SENT_PROC_SCRIPTS=/home/me/.SENTINELOSHKA/scripts
+#connection to processing server (ssh)
+SENT_PROCSSH=me@salomon.it4i.cz
+#path to LICS-based MySQL database of Sentinel-1 bursts
+SENT_MYSQL_DB=147.251.255.xxx
+SENT_MYSQL_S1DB=s1db
+SENT_MYSQL_USER=s1user
+SENT_MYSQL_PASS=xxx
+
