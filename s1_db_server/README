@@ -10,3 +10,4 @@ s1_proc_server for further processing.
 Of course both servers can be the same - I had some reasons to separate it..
 
 The processing chain is started using script sentineloshka_make_it.sh
+Please, take a look at files in templates folder. They include paths to orbital and auxiliary data directory for Sentinel-1
