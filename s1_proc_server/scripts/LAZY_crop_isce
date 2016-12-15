@@ -1,0 +1,50 @@
+#!/bin/tcsh -f
+#
+# The script is updated for the needs of Sentineloshka system by Milan Lazecky, IT4Innovations, CZ, 2016
+# Usage: LAZY_crop_isce S N W E FILENAME 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Author: David Bekaert
+# Organization: Jet Propulsion Laboratory, California Institute of Technology
+# Copyright 2016 by the California Institute of Technology.
+# ALL RIGHTS RESERVED.
+# United States Government Sponsorship acknowledged.
+#
+# THESE SCRIPTS ARE PROVIDED TO YOU "AS IS" WITH NO WARRANTIES OF CORRECTNESS. USE AT YOUR OWN RISK.
+#
+# These are shell scripts that call routines of the ISCE software.
+# These scripts are not a distribution of the JPL/Caltech ISCE software itself.
+# These scripts are open-source contributions and should not be mistaken for official Applications within ISCE.
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# Modifications
+# ML 09/2016 Rewrite everything..
+# DB 09/2016 Crop the slc rather than the raw file when both are found
+set nonomatch
+# passing through variables
+set latmin = $argv[1]
+set latmax = $argv[2]
+set lonmin = $argv[3]
+set lonmax = $argv[4]
+set filename = $argv[5]
+# defining current directory
+set CURDIR = `pwd`
+# retrieve the current slave data folder being processed
+set date = `basename $CURDIR`
+# start from the current folder, such one can reprocess easily without the need to manually specify the inputs
+# move dir above
+cd ..
+set PARENTDIR = `pwd`
+# different option depending is zero or native doppler
+set doptype = `cat platform_dop_type | awk '{print $1}'`
+if ($doptype == 0) then
+# zero doppler
+set doppler_str = `echo `
+echo zero doppler data >> processing.log
+echo zero doppler data
+else
+# native doppler
+set doppler_str = `printf "%.*s\n" 2 "-n"`
+echo native doppler data >> processing.log
+echo native doppler data
+endif
+cropFrame.py -b $latmin $latmax $lonmin $lonmax -i $full_dir -o $CURDIR $doppler_str

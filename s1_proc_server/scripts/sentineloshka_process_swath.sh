@@ -43,7 +43,7 @@ for x in `cat connections.txt`; do
   echo sentineloshka_process_ifg.sh $MASTER $SLAVE >> qsub_$x'.sh'
   chmod 775 qsub_$x'.sh'
   #overcoming problem with user limit - 100 tasks in queue
-  while [ `qstat | grep laz048 | wc -l` -gt 90 ]; do sleep 10; echo "Waiting till something finishes (we have limit 100 tasks per user)"; done
+  while [ `qstat | grep $USER | wc -l` -gt 90 ]; do sleep 10; echo "Waiting till something finishes (we have limit 100 tasks per user)"; done
   #I realized that ifg will not be finished within an hour (with 24 processors) in some cases of 4 or more bursts :( so cannot use qexp :((((
   if [ `ls $MASTER | wc -l` -gt 9 ]; then FRONTA="qfree -A "$PROJECTIT4I; else FRONTA="qexp"; fi
   qsub -q $FRONTA ./qsub_$x'.sh'
